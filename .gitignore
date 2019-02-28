@@ -184,3 +184,5 @@ fabric.properties
 
 # Editor-based Rest Client
 .idea/httpRequests
+/.idea/HashCode2019Qualifier.iml
+/.idea/misc.xml
