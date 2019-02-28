@@ -31,3 +31,17 @@ for index in range(data.num_photos):
 print("\nThe Dictionary:")
 for tag in data.tags:
     print(tag + " : " + str(data.tags[tag]))
+
+# Boyd's solution:
+v_photos = []
+for photo in data.photos:
+    if photo[1] == "v":
+        v_photos.append(photo)
+collections = []
+for photo in v_photos:
+
+
+def calculate_score(photo_1, photo_2):
+    one_and_two = [tag_from_1 for tag_from_1 in ]
+    photo_1[3].extend(photo_2[3])))
+    score = min()
