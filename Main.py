@@ -32,8 +32,8 @@ print("\nThe Dictionary:")
 for tag in data.tags:
     print(tag + " : " + str(data.tags[tag]))
 
-output.add_slide(-1, [data.photos[0][0]])
-output.add_slide(-1, [data.photos[1][0], data.photos[2][0]])
-output.add_slide(-1, [data.photos[3][0]])
+output.add_slide(-1, data.photos[0][0])
+output.add_slide(-1, data.photos[1][0], data.photos[2][0])
+output.add_slide(-1, data.photos[3][0])
 
 output.write("out1.txt")

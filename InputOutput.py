@@ -55,18 +55,27 @@ class Output:
     def __init__(self):
         self.photos = []
 
-    def add_slide(self, index, photo_ids):
-        self.photos.insert(index, photo_ids)
-
-
+    def add_slide(self, index, photo1, photo2=None):
+        if photo2:
+            self.photos.insert(index, [photo1, photo2])
+        else:
+            self.photos.insert(index, [photo1])
 
     def write(self, filename):
         f = open(filename, "w")
         # Write the 2D array self.arr1's contents to the file, separating first by newlines, then by single spaces
+
         str_photos = []
         for photo_ids in self.photos:
-            str_photos.append(" ".join(str(photo_ids)))
-        output = str(sum(self.photos[1]))
+            if len(photo_ids) == 2:
+                str_photos.append(str(photo_ids[0]) + " " + str(photo_ids[1]))
+            else:
+                str_photos.append(str(photo_ids[0]))
+            print(photo_ids)
+            print(str_photos, end="\n\n")
+
+
+        output = str(len(str_photos))  # count up all the slides
         for string in str_photos:
             output += "\n" + string
         f.write(output)
