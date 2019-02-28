@@ -5,7 +5,7 @@ files = ["a_example.txt",
          "c_memorable_moments.txt",
          "d_pet_pictures.txt",
          "e_shiny_selfies.txt"]
-data = InputOutput.Data("input_data/" + files[1])
+data = InputOutput.Data("input_data/" + files[0])
 """
 data.photos[photo_id][0] - photo id
 data.photos[photo_id][1] - 'h' or 'v'
