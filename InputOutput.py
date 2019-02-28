@@ -57,31 +57,24 @@ class Output:
     """
 
     def __init__(self):
-        self.photos = []
+        self.slides_photo_ids = []
 
-    def add_slide(self, index, photo1, photo2=None):
-        if photo2:
-            self.photos.insert(index, [photo1, photo2])
-        else:
-            self.photos.insert(index, [photo1])
+    def add_slide(self, index, photo_ids):
+        self.slides_photo_ids.insert(index, photo_ids)
 
     def write(self, filename):
         f = open(filename, "w")
         # Write the 2D array self.arr1's contents to the file, separating first by newlines, then by single spaces
-
-        str_photos = []
-        for photo_ids in self.photos:
-            if len(photo_ids) == 2:
-                str_photos.append(str(photo_ids[0]) + " " + str(photo_ids[1]))
-            else:
-                str_photos.append(str(photo_ids[0]))
-            print(photo_ids)
-            print(str_photos, end="\n\n")
-
-
-        output = str(len(str_photos))  # count up all the slides
-        for string in str_photos:
-            output += "\n" + string
-        f.write(output)
+        n_slides = len(self.slides_photo_ids)
+        
+        print(n_slides)
+        f.write(str(n_slides) + "\n")
+        
+        for photo_ids in self.slides_photo_ids:
+            output = ' '.join([str(id) for id in photo_ids])
+            
+            print(output)
+            f.write(output + "\n")
+        
         f.close()
         print("Successful write to file {} {}".format(filename, "😁"))
