@@ -14,7 +14,7 @@ def create_slides(photos):
     slides = []  # [([photo ids], {tag ids})] each slide is a tuple ([photo ids], {tag ids})
     vertical_photos = []
 
-    for photo in data.photos:
+    for photo in photos:
         if photo[1] == 'h':
             slides.append(([photo[0]], set(photo[4])))  # tuple containing ([photo ids], {tag ids})
         else:
