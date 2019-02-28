@@ -79,10 +79,5 @@ class Output:
         for string in str_photos:
             output += "\n" + string
         f.write(output)
-
-        # f.write(str(sum(self.photos)) +
-        #         "\n".join(
-        #             [" ".join(str(inner_array)) for inner_array in self.photos]
-        #         ))
         f.close()
         print("Successful write to file {} {}".format(filename, "😁"))
