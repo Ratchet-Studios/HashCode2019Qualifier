@@ -23,6 +23,10 @@ output.add_slide(index_of_slide_in_show, [photo_id_0, optional_id_1])
 output.write(my_output_file_name)
 """
 
+# Boyd's solution
+
+
+
 # Testing that data and output actually work:
 print("All the tags: ")
 for index in range(data.num_photos):
