@@ -1,4 +1,16 @@
 class Data:
+    """
+    data.photos[photo_id][0] - photo id
+    data.photos[photo_id][1] - 'h' or 'v'
+    data.photos[photo_id][2] - number of tags of this photo
+    data.photos[photo_id][3] - a list, all the tags of that photo
+
+    data.num_photos - the number of photos in the collection in total
+
+    data.tags[my_tag][0] - unique id for each tag
+    data.tags[my_tag][1] - counter for how often that tag occurs
+    """
+
     def __init__(self, filename):
         file = open(filename)
         # Read the file into an array of lines
@@ -13,12 +25,25 @@ class Data:
 
         origin = 1
         self.photos = []
+        count = 0
+        self.tags = {}
         for index in range(origin, origin + self.num_photos):
             self.photos.append([
-                elements[index][0].lower(),  # [0] = Horizontal or vertical?, lowercase 'h' or 'v'
-                int(elements[index][1]),  # [1] = number of tags, integer
-                elements[index][2:]  # [2] = all the tags of that photo, array with lowercase strings
+                count,  # [0] = id of the photo
+                elements[index][0].lower(),  # [1] = Horizontal or vertical?, lowercase 'h' or 'v'
+                int(elements[index][1]),  # [2] = number of tags, integer
+                elements[index][2:]  # [3] = all the tags of that photo, array with lowercase strings
             ])
+            tag_id = 0
+            for tag in self.photos[index - origin][3]:  # for all the tags in our current photo
+                if self.tags[tag]:  # if the tag already exists, increment its count
+                    self.tags[tag][1] += 1
+                else:
+                    self.tags[tag] = [tag_id, 0]
+
+            count += 1
+
+
 
 
 class Output:
