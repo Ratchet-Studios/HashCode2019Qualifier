@@ -49,4 +49,4 @@ class Output:
             [" ".join(inner_array) for inner_array in self.arr1]
         ))
         f.close()
-        print("Successful write to file " + filename)
+        print("Successful write to file {} {}".format(filename, "😁"))
