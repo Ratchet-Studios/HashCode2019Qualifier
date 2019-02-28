@@ -44,21 +44,19 @@ class Data:
             count += 1
 
 
-
-
 class Output:
     def __init__(self):
-        self.arr1 = []
+        self.photos = []
 
-    def add(self, index, var1, var2, var3):
-        self.arr1.insert(index, [var1, var2, var3])
+    def add_slide(self, index, photo_ids):
+        self.photos.insert(index, photo_ids)
 
     def write(self, filename):
         f = open(filename, "w")
-        # TODO  add formatting required by HashCode for the output
         # Write the 2D array self.arr1's contents to the file, separating first by newlines, then by single spaces
-        f.write("\n".join(
-            [" ".join(inner_array) for inner_array in self.arr1]
-        ))
+        f.write(str(sum(self.photos)) + "\n" +
+            "\n".join(
+                [" ".join(str(inner_array)) for inner_array in self.photos]
+            ))
         f.close()
         print("Successful write to file {} {}".format(filename, "😁"))

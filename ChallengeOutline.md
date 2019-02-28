@@ -24,7 +24,7 @@ lines:
 1. S - number of slides
 2. S lines after this, containing either:
 * single integer of the horizontal photo, or
-* two integers separated by a space - IDs of hte two vertical photos
+* two integers separated by a space - IDs of the two vertical photos
 
 Slides must be used once or zero times
 
