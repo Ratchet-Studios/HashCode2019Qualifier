@@ -11,7 +11,7 @@ class Data:
             elements.append(int(entry) for entry in line.split(" "))  # convert the strings to integers
 
         # TODO rename the variables as appropriate
-        self.rows = elements[0][0]
+        self.num_photos = elements[0][0]
         self.cols = elements[0][1]
         self.var1 = elements[0][2]
         self.var2 = elements[0][3]
