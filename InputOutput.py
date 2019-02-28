@@ -49,6 +49,7 @@ class Output:
     """
     output.add_slide(index_of_slide_in_show, [photo_id_0, optional_id_1])
     output.write(my_output_file_name)
+    output.photos[0]
     """
 
     def __init__(self):
@@ -57,13 +58,15 @@ class Output:
     def add_slide(self, index, photo_ids):
         self.photos.insert(index, photo_ids)
 
+
+
     def write(self, filename):
         f = open(filename, "w")
         # Write the 2D array self.arr1's contents to the file, separating first by newlines, then by single spaces
         str_photos = []
         for photo_ids in self.photos:
             str_photos.append(" ".join(str(photo_ids)))
-        output = str(sum(self.photos))
+        output = str(sum(self.photos[1]))
         for string in str_photos:
             output += "\n" + string
         f.write(output)
