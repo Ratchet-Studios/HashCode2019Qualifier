@@ -36,4 +36,5 @@ doesn't care about the similarity between photos on the same slide, only on inte
 min of:
 * number of common tags between S0 and S1
 * number of tags in S0 but not S1
-* number of tags in S1 but not S0 
+* number of tags in S1 but not S0
+ 
