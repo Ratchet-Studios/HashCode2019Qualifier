@@ -19,7 +19,7 @@ class Data:
         # Create a 2D array, split first by each line, then by spaces foreach line
         elements = []
         for line in lines:
-            elements.append(entry for entry in line.split(" "))  # convert the strings to integers
+            elements.append(list(entry for entry in line.split(" ")))  # convert the strings to integers
 
         self.num_photos = int(elements[0][0])
 
@@ -27,6 +27,7 @@ class Data:
         self.photos = []
         count = 0
         self.tags = {}
+        tag_id = 0
         for index in range(origin, origin + self.num_photos):
             self.photos.append([
                 count,  # [0] = id of the photo
@@ -34,17 +35,21 @@ class Data:
                 int(elements[index][1]),  # [2] = number of tags, integer
                 elements[index][2:]  # [3] = all the tags of that photo, array with lowercase strings
             ])
-            tag_id = 0
             for tag in self.photos[index - origin][3]:  # for all the tags in our current photo
-                if self.tags[tag]:  # if the tag already exists, increment its count
+                if tag in self.tags:  # if the tag already exists, increment its count
                     self.tags[tag][1] += 1
                 else:
-                    self.tags[tag] = [tag_id, 0]
+                    self.tags[tag] = [tag_id, 1]
+                tag_id += 1
 
             count += 1
 
 
 class Output:
+    """
+    output.add_slide(index_of_slide_in_show, [photo_id_0, optional_id_1])
+    output.write(my_output_file_name)
+    """
     def __init__(self):
         self.photos = []
 
@@ -60,3 +65,4 @@ class Output:
             ))
         f.close()
         print("Successful write to file {} {}".format(filename, "😁"))
+
