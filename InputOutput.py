@@ -67,13 +67,13 @@ class Output:
         # Write the 2D array self.arr1's contents to the file, separating first by newlines, then by single spaces
         n_slides = len(self.slides_photo_ids)
         
-        print(n_slides)
+        # print(n_slides)
         f.write(str(n_slides) + "\n")
         
         for photo_ids in self.slides_photo_ids:
             output = ' '.join([str(id) for id in photo_ids])
             
-            print(output)
+            # print(output)
             f.write(output + "\n")
         
         f.close()
