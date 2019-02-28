@@ -41,6 +41,10 @@ class Data:
                 else:
                     self.tags[tag] = [tag_id, 1]
                 tag_id += 1
+            
+            self.photos[-1].append(
+                [self.tags[tag_name][0] for tag_name in self.photos[-1][3]]
+            )
 
             count += 1
 
